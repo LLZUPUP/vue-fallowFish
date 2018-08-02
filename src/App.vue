@@ -3,7 +3,6 @@
     <router-view></router-view>
   </div>
 </template>
-
 <script>
 export default {
   name: 'App'
@@ -11,8 +10,6 @@ export default {
 </script>
 
 <style lang="stylus">
-#app {
+#app 
   overflow hidden
-}
-
 </style>

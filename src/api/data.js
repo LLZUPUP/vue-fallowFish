@@ -12,3 +12,28 @@ export function getCategory() {
   const url = HOST + '/category'
   return axios.get(url)
 }
+
+export function getIndexbanner() {
+  const url = HOST + '/indexbanner'
+  return axios.get(url)
+}
+
+export function getIconlist() {
+  const url = HOST + '/iconlist'
+  return axios.get(url)
+}
+
+export function getTypelist() {
+  const url = HOST + '/typelist'
+  return axios.get(url)
+}
+
+export function getSmBanner() {
+  const url = HOST + '/smallbanner'
+  return axios.get(url)
+}
+
+export function getIndexNav() {
+  const url = HOST + '/indexnav'
+  return axios.get(url)
+}

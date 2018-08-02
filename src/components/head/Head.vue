@@ -25,6 +25,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
   .header
+    z-index 200
     height 1.5rem
     width 10rem
     background-color #ffda44
