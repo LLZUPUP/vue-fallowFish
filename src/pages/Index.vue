@@ -7,7 +7,8 @@
       <IndexGoods :iconList="iconList"></IndexGoods>
       <IndexTypes :typeList="typeList"></IndexTypes>
       <SmallBanner :smBanner="smBanner"></SmallBanner>
-      <IndexNav :indexnav="indexnav"></IndexNav>
+      <IndexNav :news="news" :nears="nears" :recoms="recoms"></IndexNav>
+      <NavButtom></NavButtom>
       
     </div>
 </template>
@@ -16,6 +17,7 @@
 import { getIconlist, getTypelist, getSmBanner, getIndexNav, ERR_OK } from '@/api/data'
 import IndexGoods from '@/components/indexgoods/IndexGoods'
 import IndexTypes from '@/components/indexTypes/IndexTypes'
+import NavButtom from '@/components/navbuttom/NavButtom'
 import SmallBanner from '@/components/smallbanner/SmallBanner'
 import IndexNav from '@/components/indexnav/IndexNav'
 import IndexBanner from '@/components/indexbanner/IndexBanner'
@@ -35,7 +37,9 @@ export default {
       iconList: [],
       typeList: [],
       smBanner: [],
-      indexnav: null
+      news: [],
+      nears: [],
+      recoms: []
     }
   },
   created() {
@@ -56,7 +60,9 @@ export default {
     }),
     getIndexNav().then(res=> {
       if(res.status === ERR_OK) {
-        this.indexnav = res.data
+        this.news = res.data.news
+        this.nears = res.data.nears
+        this.recoms = res.data.recoms
       }
     })
 

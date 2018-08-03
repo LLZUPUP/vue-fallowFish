@@ -8,7 +8,7 @@
         <span>附近的</span>
       </router-link>
     </div>
-    <router-view :indexnav="indexnav"></router-view>
+    <router-view :news="news" :nears="nears" :recoms="recoms"></router-view>
   </div>
 </template>
 
@@ -16,12 +16,17 @@
 export default {
   data() {
     return {
-      news: []
     }
   },
   props: {
-    indexnav: {
-      type: Object
+    news: {
+      type: Array
+    },
+    nears: {
+      tyepe: Array
+    },
+    recoms: {
+      type: Array
     }
   },
   created() {
