@@ -10,6 +10,7 @@ import 'mint-ui/lib/style.css';
 import { Toast } from 'mint-ui'
 import VueLazyload from 'vue-lazyload'
 import './common/stylus/index.styl'
+import store from './store'
 
 Vue.use(VueLazyload)
 Vue.use(Mint);
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

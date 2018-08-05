@@ -30,7 +30,8 @@ export default {
     IndexGoods,
     IndexTypes,
     SmallBanner,
-    IndexNav
+    IndexNav,
+    NavButtom
   },
   data() {
     return {
