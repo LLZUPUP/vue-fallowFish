@@ -5,6 +5,9 @@ import Category from '@/pages/Category'
 import Near from '@/components/near/Near'
 import New from '@/components/new/New'
 import Index from '@/pages/Index'
+import Yutang from '@/pages/Yutang'
+import Message from '@/pages/Message'
+import My from '@/pages/My'
 
 Vue.use(Router)
 
@@ -33,6 +36,18 @@ export default new Router({
       path: '/category',
       component: Category
     },
+    {
+      path: '/yutang',
+      component: Yutang
+    },
+    {
+      path: '/message',
+      component: Message
+    },
+    {
+      path: '/my',
+      component: My
+    }
     
   ]
 })
