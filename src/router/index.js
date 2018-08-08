@@ -8,6 +8,7 @@ import Index from '@/pages/Index'
 import Yutang from '@/pages/Yutang'
 import Message from '@/pages/Message'
 import My from '@/pages/My'
+import Login from '@/pages/Login'
 
 Vue.use(Router)
 
@@ -47,6 +48,10 @@ export default new Router({
     {
       path: '/my',
       component: My
+    },
+    {
+      path: '/login',
+      component: Login
     }
     
   ]

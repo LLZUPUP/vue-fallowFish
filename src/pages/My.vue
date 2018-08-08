@@ -1,10 +1,15 @@
 <template>
-  <div>my</div>
+  <div>my
+    <NavButtom></NavButtom>
+  </div>
 </template>
 
 <script>
+import NavButtom from '@/components/navbuttom/NavButtom'
 export default {
-  
+  components: {
+    NavButtom
+  }
 }
 </script>
 

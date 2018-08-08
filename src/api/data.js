@@ -37,3 +37,32 @@ export function getIndexNav() {
   const url = HOST + '/indexnav'
   return axios.get(url)
 }
+
+export function getBanner() {
+  const url = HOST + '/banner'
+  return axios.get(url)
+}
+
+export function getInterests() {
+  const url = HOST + '/interests'
+  return axios.get(url)
+}
+export function getQuestions() {
+  const url = HOST + '/questions'
+  return axios.get(url)
+}
+
+export function getTuhao() {
+  const url = HOST + '/tuhao'
+  return axios.get(url)
+}
+
+export function getChina() {
+  const url = HOST + '/china'
+  return axios.get(url)
+}
+
+export function getLists() {
+  const url = HOST + '/lists'
+  return axios.get(url)
+}

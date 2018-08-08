@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="item item2" :class="{icon1: footerIndex !==0,icon11: footerIndex === 0}" @click="tohome">闲鱼</div>
+    <div class="item item2" :class="{icon11: footerIndex ===0,icon1: footerIndex !== 0}" @click="tohome">闲鱼</div>
     <div class="item item2" :class="{icon22: footerIndex === 1, icon2: footerIndex !== 1}" @click="toyutang">鱼塘</div>
     <div class="item item1">
       <div class="outbox">
@@ -8,7 +8,7 @@
       </div>
       <p class="commit">发布</p>
     </div>
-    <div class="login" v-show="login">
+    <div class="login" v-show="login" ref="login" :class="{'active':active}">
       <div class="head">
         <h2 class="guide">闲鱼赚钱指南</h2>
         <ul class="navbar">
@@ -46,8 +46,8 @@
           <p class="explain">发布服务</p>
         </div>
       </div>
-      <div class="close">
-        <span class="close"></span>
+      <div class="closebox">
+        <span class="close" @click="close"></span>
       </div>
     </div>
     <div class="item item2" :class="{icon44: footerIndex === 3, icon4: footerIndex !== 3}" @click="tomessage">消息</div>
@@ -57,13 +57,22 @@
 
 <script>
 import store from '../../store/index.js'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      footerIndex: 0
+      footerIndex: 0,
+      active: false
     }
   },
+  computed: {
+    ...mapGetters([
+      'login'
+    ])
+  },
   mounted() {
+    this.active = false
+    this.$store.dispatch('hasLogin')
     this.footerIndex = this.$store.state.curIndex
   },
   methods: {
@@ -92,7 +101,22 @@ export default {
       })
     },
     open() {
-
+      if(this.$store.state.isLogin) {
+        const login = this.$refs.login
+        login.style.display = 'block'
+        this.active = false
+      }else {
+        this.$router.push({
+          path: '/login'
+        })
+      }
+    },
+    close() {
+      this.active = true
+      const login = this.$refs.login
+      setTimeout(()=> {
+        login.style.display = 'none'
+      },500)
     }
   },
  
@@ -143,10 +167,137 @@ export default {
     &.item2
       line-height 2.5rem
     &.item1
-      padding-bottom 0.8em
+      padding-bottom 0.8rem
       box-sizing border-box
       position relative
       display flex
       flex-direction column
       justify-content center
+      .outbox
+        width 1.3rem
+        height 1.3rem
+        border-radius 50%
+        background-color #fff
+        margin 0.15rem auto
+        display block
+        position relative
+        z-index 500
+        .open
+          width 1.2rem
+          height 1.2rem
+          display block
+          border-radius 50%
+          margin 0.1rem auto 
+          background: #ffda44 url('../../assets/images/加.png') no-repeat;
+          background-size .8rem .8rem
+          background-position 50% 50%
+  .login
+    display none
+    position fixed
+    z-index 600
+    top 0
+    left 0
+    right 0
+    bottom 0
+    background-color #fff
+    animation enter .5s
+    overflow hidden
+    &.active
+      animation out 1s
+    @keyframes enter 
+      0% 
+        transform scale(0)
+        opacity 0
+      100%
+        transform scale(1)
+        opacity 1
+    @keyframes out 
+      0%
+        transform scale(1)
+      100%
+        transform scale(0)
+        opacity 0
+    .head
+      width 100%
+      .guide
+        margin-top 1.5rem
+        font-size 0.5rem
+        width 100%
+        color #000000
+        padding-left 0.4rem
+        box-sizing border-box
+      .navbar
+        margin-top 1rem
+        width 100%
+        padding-left 0.3rem
+        display flex
+        justify-content space-around
+        list-style none
+        .li
+          margin-right 0.4rem
+          .title
+            font-size 0.4rem
+            font-weight 500
+            color #000
+            margin-bottom 0.2rem
+            &:after
+              content ''
+              display inline-block
+              height 0.16rem
+              width 0.16rem
+              border-width: 2px 2px 0 0;
+              border-color: #ffda44;
+              border-style: solid;
+              transform: rotate(45deg);
+              position: relative;
+              margin-left: .066rem;
+          .tip
+            font-size 0.3rem
+            color #888888
+    .content
+      width 100%
+      display flex
+      margin-top 5rem
+      transition all .7s ease-in
+      .type
+        flex 1
+        display flex
+        flex-direction column
+        align-items center
+        .image
+          width 2rem
+          height 2rem
+          background-color #ffda44
+          border-radius 50%
+          display flex
+          justify-content center
+          align-items center
+          img 
+            width 1.2rem
+            height 1.2rem
+            vertical-align middle   
+        .explain
+          margin-top 0.3rem
+          color #333333
+          font-size 0.35rem
+    .closebox
+      width 3rem
+      height 3rem
+      position fixed
+      bottom 0
+      left 50%
+      margin-left -1.5rem
+      display flex
+      justify-content center
+      align-items center
+      .close
+        width 1.2rem
+        height 1.2em
+        background url('../../assets/images/X.png') no-repeat
+        background-size 1.3rem 1.3rem
+
+    
+
+
+
 </style>

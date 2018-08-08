@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.12.5",
+    "lrz": "^4.9.40",
     "mint-ui": "^2.2.13",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

@@ -144,7 +144,7 @@ export default {
           width .8rem
           height .8rem
       .title
-        font-size .5rem
+        font-size .4rem
         font-weight 700
     .category
       width 100%
