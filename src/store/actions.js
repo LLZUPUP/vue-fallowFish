@@ -71,6 +71,10 @@ const actions = {
     if(window.localStorage.getItem('username') == null && window.localStorage.getItem('password') == null) {
       commit('noLogin')
     }
+  },
+  //传递数据
+  setNews: ({ commit }, news) =>{
+    commit('setNews', news)
   }
 
 }

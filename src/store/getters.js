@@ -32,6 +32,9 @@ const getters = {
   username: (state)=> {
     return state.username
   },
+  news: (state)=> {
+    return state.news
+  }
   
 }
 

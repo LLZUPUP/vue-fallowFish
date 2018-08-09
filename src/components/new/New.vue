@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul>
-      <li class="list" v-for="(list,index) in news" :key="index">
+      <li class="list" v-for="(list,index) in news" :key="index"  @click="details(index)">
         <div class="header">
           <img :src="list.avatar" alt="">
           <div class="info">
@@ -83,6 +83,16 @@ export default {
       })
     })
     
+  },
+  methods: {
+    details(index) {
+      let news = this.news[index]
+      this.$store.dispatch('setNews', news)
+      this.$router.push({
+        path: '/details'
+      })
+      
+    }
   }
 }
 </script>

@@ -67,6 +67,9 @@ const mutations = {
   //登陆状态为false
   noLogin(state) {
     state.isLogin = false
+  },
+  setNews(state, news) {
+    state.news = news
   }
 }
 
