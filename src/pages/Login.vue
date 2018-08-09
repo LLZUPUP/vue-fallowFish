@@ -32,6 +32,7 @@
 
 <script>
 import lrz from 'lrz'
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -39,6 +40,11 @@ export default {
       username: '',
       password: ''
     }
+  },
+  computed: {
+    ...mapGetters([
+      'login'
+    ])
   },
   methods: {
     goBack() {
@@ -73,6 +79,12 @@ export default {
         window.localStorage.setItem('username',this.username)
         window.localStorage.setItem('password',this.password)
         this.$store.dispatch('hasLogin')
+        let obj = {}
+        obj.avatar = this.url
+        obj.username = this.username
+        obj.password = this.password
+        this.$store.dispatch('setUsername', this.username)
+        this.$store.dispatch('setUserinfo', obj)
         this.$toast({
           message: '登录成功',
           duration: 500

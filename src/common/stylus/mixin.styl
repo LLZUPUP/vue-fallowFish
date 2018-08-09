@@ -9,6 +9,21 @@ border-1px($color)
     border-top: 1px solid $color
     content: ' '
 
+tri-2px($color)
+  position relative
+  &:after 
+    content ''
+    display inline-block
+    height .25rem
+    width .25rem
+    border-width 2px 2px 0 0
+    border-color $color
+    border-style solid
+    transform rotate(45deg)
+    position absolute
+    right .3rem
+    top 0.45rem
+
 border-none()
   &:after
     display: none

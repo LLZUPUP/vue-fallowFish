@@ -89,10 +89,17 @@ export default {
       })
     },
     tomessage() {
-      this.$store.dispatch('setCurIndex', 3)
-      this.$router.push({
-        path: '/message'
-      })
+      if(this.$store.state.isLogin) {
+        this.$store.dispatch('setCurIndex', 3)
+        this.$router.push({
+          path: '/message'
+        })
+      }else {
+        this.$router.push({
+          path: '/login'
+        })
+      }
+      
     },
     tomy() {
       this.$store.dispatch('setCurIndex', 4)
