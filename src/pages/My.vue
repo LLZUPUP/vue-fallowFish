@@ -41,9 +41,9 @@
     </div>
     <div class="list">
       <ul class="itemlist">
-        <li class="item item1">我发布的<span class="number" v-if="login">{{fabunum}}</span></li>
+        <li class="item item1" @click="fabu">我发布的<span class="number" v-if="login">{{fabunum}}</span></li>
         <li class="item item2">我卖出的<span class="number" v-if="login">{{sellnum}}</span></li>
-        <li class="item item3">我买到的<span class="number" v-if="login">{{buynum}}</span></li>
+        <li class="item item3" @click="buy">我买到的<span class="number" v-if="login">{{buynum}}</span></li>
         <li class="item item4">我赞过的<span class="number" v-if="login">{{likenum}}</span></li>
         <li class="item item5">我的拍卖</li>
         <li class="item item6">我的鱼贝<span class="number" v-if="login">{{money}}</span></li>
@@ -79,6 +79,7 @@ export default {
     }
   },
   mounted() {
+    this.isLogin = this.$store.state.isLogin
     let username = window.localStorage.getItem('username')
     this.$store.dispatch('setUsername', username)
     this.url = window.localStorage.getItem('useravatar')
@@ -95,6 +96,24 @@ export default {
       this.$router.push({
         path: '/my'
       })
+    },
+    fabu() {
+      if(!this.isLogin) {
+        this.$toast('请先登录再查看')
+      }else {
+        this.$router.push({
+          path: '/fabu'
+        })
+      }
+    },
+    buy() {
+      if(!this.isLogin) {
+        this.$toast('请先登录再查看')
+      }else {
+        this.$router.push({
+          path: '/order'
+        })
+      }
     }
   },
   computed: {

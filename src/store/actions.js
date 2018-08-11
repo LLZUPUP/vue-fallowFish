@@ -75,6 +75,21 @@ const actions = {
   //传递数据
   setNews: ({ commit }, news) =>{
     commit('setNews', news)
+  },
+  setAddr: ({ commit }, address)=> {
+    commit('setAddr', address)
+  },
+  setGoods: ({ commit }, good)=> {
+    commit('setGoods', good)
+  },
+  cutGoods: ({ commit }, index)=> {
+    commit('cutGoods', index)
+  },
+  setReceive: ({ commit }, obj)=> {
+    commit('setReceive', obj)
+  },
+  setDel: ({ commit }, obj)=> {
+    commit('setDel', obj)
   }
 
 }

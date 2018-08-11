@@ -12,6 +12,8 @@ const state = {
   likenum: 0,
   userinfo: {},
   news: '',
+  address: {},
+  goods: []
 
 
 }

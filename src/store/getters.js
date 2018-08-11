@@ -34,6 +34,12 @@ const getters = {
   },
   news: (state)=> {
     return state.news
+  },
+  address: (state)=> {
+    return state.address
+  },
+  goods: (state)=> {
+    return state.goods
   }
   
 }

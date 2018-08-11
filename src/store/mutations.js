@@ -70,6 +70,22 @@ const mutations = {
   },
   setNews(state, news) {
     state.news = news
+  },
+  setAddr(state, address) {
+    state.address = address
+  },
+  setGoods(state, good) {
+    state.goods.push(good)
+  },
+  cutGoods(state, index) {
+    state.goods.splice(index, 1)
+    state.buynum --
+  },
+  setReceive(state, obj) {
+    state.goods[obj.index].receive = obj.receive
+  },
+  setDel(state, obj) {
+    state.goods[obj.index].del = obj.del
   }
 }
 
