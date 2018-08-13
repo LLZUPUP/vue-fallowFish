@@ -13,7 +13,8 @@ const state = {
   userinfo: {},
   news: '',
   address: {},
-  goods: []
+  goods: [],
+  fabuinfo: []
 
 
 }

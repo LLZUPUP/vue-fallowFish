@@ -90,7 +90,13 @@ const actions = {
   },
   setDel: ({ commit }, obj)=> {
     commit('setDel', obj)
-  }
+  },
+  setFabuinfo: ({ commit },info)=> {
+    commit('setFabuinfo', info)
+  },
+  cutFabuinfo: ({commit}, index) => {
+		commit('cutFabuinfo', index)
+	},
 
 }
 

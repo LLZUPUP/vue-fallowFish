@@ -27,7 +27,7 @@
         </ul>
       </div>
       <div class="content">
-        <div class="type">
+        <div class="type" @click="tosell">
           <div class="image">
             <img src="../../assets/images/收纳盒.png" alt="">
           </div>
@@ -76,6 +76,12 @@ export default {
     this.footerIndex = this.$store.state.curIndex
   },
   methods: {
+    tosell() {
+      this.$refs.login.style.display = 'none'
+      this.$router.push({
+        path: '/sell'
+      })
+    },
     tohome() {
       this.$store.dispatch('setCurIndex', 0)
       this.$router.push({

@@ -86,6 +86,13 @@ const mutations = {
   },
   setDel(state, obj) {
     state.goods[obj.index].del = obj.del
+  },
+  setFabuinfo(state, info) {
+    state.fabuinfo.push(info)
+  },
+  cutFabuinfo(state, index) {
+    state.fabuinfo.splice(index, 1)
+    state.fabunum --
   }
 }
 

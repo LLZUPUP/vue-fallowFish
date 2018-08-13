@@ -10,10 +10,13 @@ import Addr from '@/components/Details/Addr'
 import Pay from '@/components/Details/Pay'
 import Fabu from '@/components/Fabu/Fabu'
 import Order from '@/components/Order/Order'
+import Price from '@/components/Price/Price'
+import Auction from '@/components/Auction/Auction'
 import Index from '@/pages/Index'
 import Yutang from '@/pages/Yutang'
 import Message from '@/pages/Message'
 import My from '@/pages/My'
+import Sell from '@/pages/Sell'
 import Login from '@/pages/Login'
 
 Vue.use(Router)
@@ -26,11 +29,11 @@ export default new Router({
       component: Index,
       children: [
         {
-          path: '/new',
+          path: 'new',
           component: New
         },
         {
-          path: '/near',
+          path: 'near',
           component: Near
         }
       ]
@@ -82,6 +85,21 @@ export default new Router({
     {
       path: '/order',
       component: Order
+    },
+    {
+      path: '/sell',
+      redirect: '/sell/price',
+      component: Sell,
+      children: [
+        {
+          path: 'price',
+          component: Price
+        },
+        {
+          path: 'auction',
+          component: Auction
+        }
+      ]
     }
     
   ]

@@ -40,6 +40,9 @@ const getters = {
   },
   goods: (state)=> {
     return state.goods
+  },
+  fabuinfo: (state)=> {
+    return state.fabuinfo
   }
   
 }
